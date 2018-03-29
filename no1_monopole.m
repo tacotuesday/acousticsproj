@@ -23,8 +23,15 @@ mic2FFT = (2/N)*fft(mic(2,:));
 [mic2Ampl,mic2Freq] = max(abs(mic2FFT));
 
 % Plot FFT of each signal.
-% figure(2)
-% plot(abs(mic1FFT(:,1:size(freq,2))))
+figure(2)
+subplot(2,1,1)
+plot(abs(mic1FFT(:,1:size(freq,2))))
+title('FFT, Mic 1')
+xlabel('Frequency/5 (Hz)'), ylabel('|H|')
+subplot(2,1,2)
+plot(abs(mic1FFT(:,1:size(freq,2))))
+title('FFT, Mic 2')
+xlabel('Frequency/5 (Hz)'), ylabel('|H|')
 
 pref = 20e-6;   % Reference pressure, Pa
 wref = 10^-12;  % Reference power, W
